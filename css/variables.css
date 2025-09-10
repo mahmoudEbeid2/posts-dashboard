@@ -1,0 +1,94 @@
+/* Base font-size: 1rem = 10px */
+html {
+  font-size: 62.5%; /* 62.5% of 16px = 10px */
+}
+
+:root {
+  /* ========== COLORS ========== */
+  /* Primary Palette (Greens) */
+  --color-primary-light: #7ed56f;
+  --color-primary-medium: #55c57a;
+  --color-primary-dark: #28b485;
+
+  /* Neutral / Grayscale */
+  --color-white: #ffffff;
+  --color-light-gray: #f7f7f7;
+  --color-gray: #cccccc;
+  --color-dark-gray: #444444;
+  --color-black: #000000;
+
+  /* Semantic */
+  --color-error: #dc3545;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+
+  /* Backgrounds */
+  --bg-body: var(--color-light-gray);
+  --bg-card: var(--color-white);
+  --bg-header: var(--color-primary-dark);
+  --bg-sidebar: var(--color-primary-medium);
+
+  /* Text */
+  --text-color: var(--color-dark-gray);
+  --text-color-light: var(--color-white);
+  --text-color-muted: #6c757d;
+
+  /* Gradient */
+  --gradient-primary: linear-gradient(
+    to right bottom,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+
+  /* ========== SHADOWS ========== */
+  --shadow-light: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+
+  /* ========== TYPOGRAPHY ========== */
+  --font-family-base: "Roboto", "Segoe UI", sans-serif;
+
+  --font-size-xs: 1.2rem; /* 12px */
+  --font-size-sm: 1.4rem; /* 14px */
+  --font-size-base: 1.6rem; /* 16px */
+  --font-size-lg: 2rem; /* 20px */
+  --font-size-xl: 2.4rem; /* 24px */
+  --font-size-xxl: 3.2rem; /* 32px */
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* ========== SPACING ========== */
+  --space-xxs: 0.4rem; /* 4px */
+  --space-xs: 0.8rem; /* 8px */
+  --space-sm: 1.2rem; /* 12px */
+  --space-md: 1.6rem; /* 16px */
+  --space-lg: 2.4rem; /* 24px */
+  --space-xl: 3.2rem; /* 32px */
+  --space-xxl: 4.8rem; /* 48px */
+
+  /* ========== BORDERS & SHADOWS ========== */
+  --border-radius-sm: 0.4rem; /* 4px */
+  --border-radius-md: 0.8rem; /* 8px */
+  --border-radius-lg: 1.6rem; /* 16px */
+
+  --shadow-sm: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+
+  /* ========== TRANSITIONS ========== */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-base: 0.3s ease-in-out;
+
+  /* ========== BREAKPOINTS (REM BASED) ========== */
+  --bp-small: 48rem; /* 480px */
+  --bp-medium: 76.8rem; /* 768px */
+  --bp-large: 102.4rem; /* 1024px */
+  --bp-xlarge: 120rem; /* 1200px */
+}
