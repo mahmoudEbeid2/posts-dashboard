@@ -1,0 +1,74 @@
+/* Dashboard Layout & Grid System */
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: grid-template-columns var(--transition-base);
+  min-height: 100vh;
+}
+
+/* Added dashboard-main styles to ensure proper positioning */
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  transition: margin-left var(--transition-base);
+}
+
+/* lock scroll when sidebar open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Desktop layout - sidebar takes space next to content from 1100px */
+@media (min-width: 1100px) {
+  .dashboard-container {
+    grid-template-columns: 1fr; /* Always use single column, control with margin */
+  }
+
+  /* Default state - content has left margin and proper width for sidebar */
+  .dashboard-main {
+    margin-left: 28rem;
+    width: calc(100% - 28rem);
+  }
+
+  /* Collapsed state - content takes full width */
+  .dashboard-container.sidebar-collapsed .dashboard-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Hide overlay on desktop */
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+/* Mobile behavior - overlay only shows on mobile */
+@media (max-width: 1099px) {
+  .dashboard-main {
+    margin-left: 0; /* No margin on mobile */
+  }
+
+  .dashboard-container.sidebar-open .dashboard-sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 2500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .dashboard-container.sidebar-open + .sidebar-overlay,
+  .dashboard-container.sidebar-open .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

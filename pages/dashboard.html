@@ -3,9 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Posts Dashboard</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
   </head>
   <body>
-    <h1>Dashboard</h1>
+    <main class="dashboard-container">
+      <aside class="dashboard-sidebar" aria-hidden="true">
+        <button id="sidebar-close" class="sidebar-close" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <span class="logo"><i class="fa-solid fa-dove"></i></span>
+        <ul class="sidebar-menu">
+          <li class="menu-item active" id="menu-posts">
+            <i class="fa-solid fa-blog"></i> <span>Posts</span>
+          </li>
+          <li class="menu-item" id="menu-add-post">
+            <i class="fa-solid fa-plus"></i> <span>Add Post</span>
+          </li>
+        </ul>
+      </aside>
+      <div id="sidebar-overlay" class="sidebar-overlay" data-close="true" aria-hidden="true"></div>
+
+      <section class="dashboard-main">
+        <header class="dashboard-header">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h1 class="dashboard-title">Posts Dashboard</h1>
+          <button class="logout-button">Logout</button>
+        </header>
+        <section class="posts-section">
+          <div class="filters" id="filters">
+            <input
+              type="text"
+              id="search"
+              placeholder="Search posts..."
+              class="search-input"
+            />
+            <select id="sort-type" class="select">
+              <option value="id">id</option>
+              <option value="title">title</option>
+            </select>
+
+            <select id="sort-order" class="select">
+              <option value="ascending">ascending</option>
+              <option value="descending">descending</option>
+            </select>
+
+            <select id="page-size" class="select">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+
+          <div id="posts-wrapper" class="posts-wrapper">
+            <div class="table-wrapper">
+              <div class="table-wrapper">
+                <table id="posts-table" class="posts-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Body</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="postsBody">
+                    <!-- Posts dynamically inserted here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="pagination">
+              <button id="prev-page" class="pagination-button disabled">
+                Previous
+              </button>
+              <span id="page-info" class="page-info">1 of 1</span>
+              <button id="next-page" class="pagination-button disabled">
+                Next
+              </button>
+            </div>
+          </div>
+
+          <div id="add-post-section" class="add-post-section hide">
+            <form id="add-post-form" class="form">
+              <div class="form-group">
+                <label for="title" class="label">Title</label>
+                <input type="text" id="title" class="input" placeholder="Post title" required />
+                <small id="title-hint" class="form-hint"></small>
+              </div>
+              <div class="form-group">
+                <label for="body" class="label">Body</label>
+                <textarea id="body" class="textarea" placeholder="Write your post..." rows="6" required></textarea>
+                <small id="body-hint" class="form-hint"></small>
+              </div>
+              <div class="form-actions">
+                <button type="button" id="add-cancel" class="cancel-button">Cancel</button>
+                <button type="reset" id="reset" class="reset-button">Reset</button>
+                <button type="submit" class="submit-button">Add Post</button>
+              </div>
+              <div id="form-message" class="form-message"></div>
+            </form>
+          </div>
+
+          <!-- Edit modal -->
+          <div id="edit-modal" class="modal hide" aria-hidden="true">
+            <div class="modal-backdrop" data-close="true"></div>
+            <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title">
+              <div class="modal-header">
+                <h3 id="edit-modal-title">Edit Post</h3>
+                <button id="edit-close" class="modal-close" aria-label="Close">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="edit-post-form" class="form">
+                  <div class="form-group">
+                    <label for="edit-title" class="label">Title</label>
+                    <input type="text" id="edit-title" class="input" placeholder="Post title" required />
+                    <small id="edit-title-hint" class="form-hint"></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-body" class="label">Body</label>
+                    <textarea id="edit-body" class="textarea" placeholder="Write your post..." rows="6" required></textarea>
+                    <small id="edit-body-hint" class="form-hint"></small>
+                  </div>
+                  <div class="form-actions">
+                    <button type="button" id="edit-cancel" class="cancel-button">Cancel</button>
+                    <button type="reset" id="edit-reset" class="reset-button">Reset</button>
+                    <button type="submit" class="submit-button">Update Post</button>
+                  </div>
+                  <div id="edit-form-message" class="form-message"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div id="loading" class="loading"></div>
+          <div id="error" class="error-message"></div>
+        </section>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hide"></div>
+
+    <script type="module" src="../js/posts.js"></script>
   </body>
 </html>

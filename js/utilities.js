@@ -1,5 +1,5 @@
 // get from storage
-import { getFromStorage } from "./storge.js";
+import { getFromStorage, removeFromStorage } from "./storge.js";
 
 //validate email
 export function validateEmail(email) {
@@ -27,4 +27,10 @@ export function generateToken(length = 32) {
 export function isUserLoggedIn() {
   const currentUser = getFromStorage("currentUser");
   return !!currentUser;
+}
+
+// logout function to clear user session and redirect to login
+export function logout() {
+  removeFromStorage("currentUser");
+  window.location.href = "login.html";
 }

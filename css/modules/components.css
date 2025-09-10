@@ -1,0 +1,94 @@
+/* UI Components - Toast, Modal, Loading States */
+
+/* Toast */
+.toast {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  min-width: 28rem;
+  background: var(--bg-header);
+  color: var(--text-color-light);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  z-index: 2000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modal:not(.hide) {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.modal-dialog {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: min(90vw, 60rem);
+  max-height: 90vh;
+  overflow: auto;
+  padding: var(--space-lg);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+}
+
+/* loading */
+.loading {
+  margin: var(--space-lg) auto;
+  width: var(--space-xl);
+  height: var(--space-xl);
+  border: 3px solid var(--color-white);
+  border-top-color: var(--color-primary-medium);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* error */
+.error-message {
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin: var(--space-lg) 0;
+}

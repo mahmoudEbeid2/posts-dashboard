@@ -6,9 +6,9 @@ import { isUserLoggedIn } from "./utilities.js";
 export const authCheck = () => {
   window.addEventListener("DOMContentLoaded", () => {
     if (isUserLoggedIn()) {
-      window.location.href = "dashboard.html";
+      window.location.href = "pages/dashboard.html";
     } else {
-      window.location.href = "login.html";
+      window.location.href = "pages/login.html";
     }
   });
 };

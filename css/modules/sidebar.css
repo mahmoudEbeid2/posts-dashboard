@@ -1,0 +1,120 @@
+/* Sidebar Navigation Styles */
+
+.dashboard-sidebar {
+  background-color: var(--bg-sidebar);
+  color: var(--text-color-light);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  box-shadow: var(--shadow-xl);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 28rem;
+  z-index: 3000;
+  transition: transform var(--transition-base), opacity var(--transition-base), padding var(--transition-base);
+  overflow: hidden;
+  transform: translateX(-100%);
+}
+
+/* Updated desktop behavior - sidebar shows normally and close button hidden from 1100px+ */
+@media (min-width: 1100px) {
+  .dashboard-sidebar {
+    position: fixed;
+    transform: translateX(0);
+    height: 100vh;
+  }
+
+  /* Always hide close button on desktop screens */
+  .sidebar-close {
+    display: none !important;
+  }
+
+  /* Hide sidebar when collapsed on desktop */
+  .dashboard-container.sidebar-collapsed .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* Show sidebar when not collapsed on desktop */
+  .dashboard-container:not(.sidebar-collapsed) .dashboard-sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile behavior - show close button only when sidebar is open */
+@media (max-width: 1099px) {
+  .sidebar-close {
+    display: none;
+  }
+
+  .dashboard-container.sidebar-open .sidebar-close {
+    display: inline-flex;
+  }
+
+  .dashboard-container.sidebar-open .dashboard-sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* sidebar close button */
+.sidebar-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  border: none;
+  background: transparent;
+  color: var(--text-color-light);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3001;
+}
+
+.logo {
+  font-size: 4rem;
+  margin-bottom: var(--space-xl);
+}
+
+.sidebar-menu {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  color: var(--color-primary-dark);
+}
+
+.menu-item i {
+  font-size: var(--font-size-lg);
+}
+
+.menu-item span {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+}
+
+.menu-item.active {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  color: var(--color-primary-dark);
+}

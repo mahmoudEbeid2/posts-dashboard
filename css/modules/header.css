@@ -1,0 +1,55 @@
+/* Dashboard Header Styles */
+
+.dashboard-header {
+  background-color: var(--bg-header);
+  color: var(--text-color-light);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  gap: var(--space-md);
+}
+
+.dashboard-title {
+  flex: 1;
+  text-align: center;
+  font-size: var(--font-size-xl);
+}
+
+/* Hamburger */
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: none;
+  border-radius: var(--border-radius-md);
+  background: var(--color-white);
+  color: var(--color-dark-gray);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* logout button */
+.logout-button {
+  background-color: var(--color-danger);
+  color: var(--text-color-light);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.logout-button:hover {
+  background-color: var(--color-danger-dark);
+  box-shadow: var(--shadow-md);
+}
