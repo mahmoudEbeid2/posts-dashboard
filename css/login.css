@@ -69,13 +69,29 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* added wrapper for password input and icon */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .input-group .password-icon {
   cursor: pointer;
   position: absolute;
+  /* positioned relative to input field only, not entire input-group */
   top: 50%;
   right: 15px;
+  transform: translateY(-50%);
   color: var(--color-gray);
   font-size: var(--font-size-sm);
+  z-index: 1;
+}
+
+/* ensure input takes full width in wrapper */
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 45px; /* add padding to prevent text overlap with icon */
 }
 
 .login-button {

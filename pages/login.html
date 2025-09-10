@@ -30,9 +30,10 @@
           <div class="input-group">
             <label for="password">Password</label>
             <!-- show and hide password -->
-            <i class="fa-solid fa-eye-slash password-icon"></i>
-
-            <input type="password" id="password" name="password" required />
+            <div class="password-input-wrapper">
+              <input type="password" id="password" name="password" required />
+              <i class="fa-solid fa-eye-slash password-icon"></i>
+            </div>
             <span class="error-message" id="password-error"></span>
           </div>
           <button type="submit" class="login-button">Login</button>
