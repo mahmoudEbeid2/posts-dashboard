@@ -11,7 +11,7 @@ const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("login-button");
 const errorMail = document.getElementById("email-error");
 const errorPassword = document.getElementById("password-error");
-const currentUser = getFromStorage("currentUser");
+const currentUser = getFromStorage("auth");
 const passwordIcon = document.querySelector(".password-icon");
 
 // toggle password visibility
@@ -72,8 +72,8 @@ loginForm.addEventListener("submit", (e) => {
 
   // save current user to local storage
   const token = generateToken();
-  const user = { token, email };
-  saveToStorage("currentUser", user);
+
+  saveToStorage("auth", token);
   emailInput.value = "";
   passwordInput.value = "";
   window.location.href = "dashboard.html";

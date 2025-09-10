@@ -25,12 +25,12 @@ export function generateToken(length = 32) {
 
 // check if user is logged in
 export function isUserLoggedIn() {
-  const currentUser = getFromStorage("currentUser");
+  const currentUser = getFromStorage("auth");
   return !!currentUser;
 }
 
 // logout function to clear user session and redirect to login
 export function logout() {
-  removeFromStorage("currentUser");
+  removeFromStorage("auth");
   window.location.href = "login.html";
 }
