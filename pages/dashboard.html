@@ -41,6 +41,15 @@
         </header>
         <section class="posts-section">
           <div class="filters" id="filters">
+            <!-- Updated view toggle to make table default -->
+            <div class="view-toggle">
+              <button id="view-cards" class="view-button" aria-label="Card view">
+                <i class="fa-solid fa-grip"></i>
+              </button>
+              <button id="view-table" class="view-button active" aria-label="Table view">
+                <i class="fa-solid fa-table"></i>
+              </button>
+            </div>
             <input
               type="text"
               id="search"
@@ -66,22 +75,27 @@
           </div>
 
           <div id="posts-wrapper" class="posts-wrapper">
-            <div class="table-wrapper">
-              <div class="table-wrapper">
-                <table id="posts-table" class="posts-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Title</th>
-                      <th>Body</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="postsBody">
-                    <!-- Posts dynamically inserted here -->
-                  </tbody>
-                </table>
-              </div>
+            <!-- Updated container visibility to show table by default -->
+            <!-- Table view -->
+            <div class="table-wrapper active" id="posts-table-wrapper">
+              <table class="posts-table" id="posts-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="posts-table-body">
+                  <!-- Posts dynamically inserted here as table rows -->
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Cards view -->
+            <div class="cards-container" id="posts-cards">
+              <!-- Posts dynamically inserted here as cards -->
             </div>
             <div class="pagination">
               <button id="prev-page" class="pagination-button disabled">

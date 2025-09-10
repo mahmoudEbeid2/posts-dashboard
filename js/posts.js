@@ -131,6 +131,35 @@ if (navigationManager.menuPosts && navigationManager.menuAddPost) {
 
 // Posts table event listeners
 const postsBody = document.getElementById("postsBody")
+const postsCards = document.getElementById("posts-cards")
+if (postsCards) {
+  postsCards.addEventListener("click", (e) => {
+    const target = e.target
+    if (!(target instanceof HTMLElement)) return
+
+    if (target.classList.contains("delete-button")) {
+      const postId = Number.parseInt(target.getAttribute("data-id"), 10)
+      const ok = confirm("Are you sure you want to delete this post?")
+      if (!ok) return
+      deletePost(postId)
+      showToast("Post deleted.")
+      navigationManager.setMenuActive(true)
+      navigationManager.showPostsList()
+      viewManager.refreshView()
+    }
+
+    if (target.classList.contains("edit-button")) {
+      const postId = Number.parseInt(target.getAttribute("data-id"), 10)
+      const post = getPost(postId)
+      if (!post) return
+      navigationManager.showEditPostForm()
+      editPostId = post.id
+      loadEditForm(post)
+      openEditModal()
+    }
+  })
+}
+
 if (postsBody) {
   postsBody.addEventListener("click", (e) => {
     const target = e.target
