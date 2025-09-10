@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <main class="login-container">
+      <section class="login-card">
+        <span class="icon-card"
+          ><i class="fa-solid fa-circle-user login-icon"></i
+        ></span>
+
+        <h1 class="login-title">Login</h1>
+        <form class="login-form" id="login-form">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <span class="error-message" id="email-error"></span>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <!-- show and hide password -->
+            <i class="fa-solid fa-eye-slash password-icon"></i>
+
+            <input type="password" id="password" name="password" required />
+            <span class="error-message" id="password-error"></span>
+          </div>
+          <button type="submit" class="login-button">Login</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- link js -->
+    <script type="module" src="../js/login.js"></script>
+  </body>
+</html>

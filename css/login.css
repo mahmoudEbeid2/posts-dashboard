@@ -1,0 +1,113 @@
+/* Import variables */
+@import url("./variables.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gradient-primary);
+  padding: var(--space-md);
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-card);
+  padding: var(--space-xxl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 40rem;
+}
+
+.login-icon {
+  font-size: 4.5rem;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-md);
+}
+
+.login-title {
+  font-size: var(--font-size-xxl);
+  color: var(--text-color-dark);
+  margin-bottom: var(--space-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+.input-group label {
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  font-weight: var(--font-weight-medium);
+}
+
+.input-group input {
+  padding: var(--space-sm);
+  border: 1px solid var(--color-gray);
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+}
+
+.input-group input:focus {
+  border-color: var(--color-primary-dark);
+  outline: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.input-group .password-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 55%;
+  right: 15px;
+  color: var(--color-gray);
+  font-size: var(--font-size-sm);
+}
+
+.login-button {
+  padding: var(--space-sm);
+  background-color: var(--color-primary-dark);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--space-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--color-primary-medium);
+}
+
+.login-button:active {
+  background-color: var(--color-primary-light);
+}
+
+.error-message {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+  font-weight: var(--font-weight-medium);
+}
